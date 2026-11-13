@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9480176-c687-4462-bd70-c03fe9f8e12f">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="502"/>
+	<property name="ireport.y" value="386"/>
+	<parameter name="no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    detail_barang_keluar.no_keluar AS detail_barang_keluar_no_keluar,
+    detail_barang_keluar.kode_barang AS detail_barang_keluar_kode_barang,
+    detail_barang_keluar.jml_keluar AS detail_barang_keluar_jml_keluar,
+    detail_barang_keluar.subtotal_keluar AS detail_barang_keluar_subtotal_keluar,
+    barang_keluar.tgl_keluar AS barang_keluar_tgl_keluar,
+    barang_keluar.total_keluar AS barang_keluar_total_keluar,
+    barang.kode_barang AS barang_kode_barang,
+    barang.nama_barang AS barang_nama_barang,
+    barang.satuan AS barang_satuan,
+    barang.harga AS barang_harga
+FROM
+    barang_keluar barang_keluar
+INNER JOIN
+    detail_barang_keluar detail_barang_keluar ON barang_keluar.no_keluar = detail_barang_keluar.no_keluar
+INNER JOIN
+    barang barang ON detail_barang_keluar.kode_barang = barang.kode_barang
+WHERE 
+    detail_barang_keluar.no_keluar=$P{no};]]>
+	</queryString>
+	<field name="detail_barang_keluar_no_keluar" class="java.lang.String"/>
+	<field name="detail_barang_keluar_kode_barang" class="java.lang.String"/>
+	<field name="detail_barang_keluar_jml_keluar" class="java.lang.Integer"/>
+	<field name="detail_barang_keluar_subtotal_keluar" class="java.lang.Double"/>
+	<field name="barang_keluar_tgl_keluar" class="java.sql.Date"/>
+	<field name="barang_keluar_total_keluar" class="java.lang.Double"/>
+	<field name="barang_kode_barang" class="java.lang.String"/>
+	<field name="barang_nama_barang" class="java.lang.String"/>
+	<field name="barang_satuan" class="java.lang.String"/>
+	<field name="barang_harga" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7ce10463-222f-450d-b7db-76d20f23a533" x="132" y="0" width="408" height="43"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="32" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KING FROZEN INDONESIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c0fc2bc-9b9b-469f-8f9d-a54f906a66c0" x="132" y="67" width="408" height="24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[WA : 0857 0637 9815]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1109f43b-f889-4bad-b2bd-eaf96e7d71c8" x="132" y="43" width="408" height="24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kota Bekasi - Jawa Barat - Indonesia]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="52fa409b-5e05-42a3-a3bb-5ad4922f2f9b" x="0" y="101" width="555" height="1"/>
+			</line>
+			<image>
+				<reportElement uuid="883cdbda-525e-429e-9a54-425df909b751" x="40" y="0" width="84" height="82"/>
+				<imageExpression><![CDATA[getClass().getResource("/Icon/logo_king_report.png")]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="957e3f0d-22e5-4723-bb6f-4cbc6a6982a8" x="74" y="24" width="19" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7b311963-df24-4809-8684-b5aae97e2f95" x="0" y="48" width="74" height="23"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82a34961-ce6f-40d5-ba75-b7f154cc2a87" x="93" y="48" width="103" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Barang Keluar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0ea359ca-5436-41bf-ab0e-d958cdf518e0" x="0" y="24" width="74" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Lampiran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3902265f-1079-423d-9df0-69ffe22b76a3" x="93" y="24" width="19" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b50a4be-5669-453d-84dc-917eec6ef9cb" x="0" y="0" width="74" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="27e5eea9-9608-4a4e-93a4-b12b0d7e2435" x="74" y="48" width="19" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1b794bf7-e10e-4aa2-b7a5-e819093bef1b" x="74" y="0" width="19" height="24"/>
+				<textElement>
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="42fb998f-c12e-4178-ac38-d5be99666a2a" x="93" y="0" width="103" height="24"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{detail_barang_keluar_no_keluar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1caa8558-b474-42a8-8a65-fb2e8e6a55cf" x="420" y="0" width="135" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE, dd MMMMM yyyy",new java.util.Locale("id")).format($F{barang_keluar_tgl_keluar})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c598ff78-054e-4c4a-a839-5333424f23cd" x="30" y="0" width="82" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Kode Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fa8aed1a-9de9-4c0d-a0c1-44fdd227ee57" x="0" y="0" width="30" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8437b64-4e48-4df2-8ef8-8a2383bd3b71" x="112" y="0" width="139" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c4292d7f-ef20-47ff-beb4-2af19aaf118d" x="251" y="0" width="65" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="988d0d1c-e9c0-4dda-a3da-fd0262a7688a" x="316" y="0" width="65" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c3884d5-f5dd-467f-9848-0e5d53b1b86c" x="381" y="0" width="66" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b961a82d-91b1-4dfa-8f18-288c28058eb0" x="447" y="0" width="108" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Subtotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="0d0e7421-cfec-43b8-b3b0-c1e3fe4a2ece" x="30" y="0" width="82" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{detail_barang_keluar_kode_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3328c66d-ddad-4a91-b87e-e555f7cae649" x="0" y="0" width="30" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1770d630-c890-45fe-a09f-15c558e4c6c2" x="112" y="0" width="139" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{barang_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="283b76f3-c953-4241-8a2c-75cb35d02e99" x="251" y="0" width="65" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{barang_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="abeb4323-4528-443e-92ad-12d67b3ad100" x="316" y="0" width="65" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{barang_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a90d0fc7-10d1-4f2d-bd8a-746ee5cd72a0" x="381" y="0" width="66" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{detail_barang_keluar_jml_keluar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="aa029db4-3df4-405d-b8e1-b74a985b1734" x="447" y="0" width="108" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{detail_barang_keluar_subtotal_keluar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="165" splitType="Stretch">
+			<textField>
+				<reportElement uuid="755528cf-d738-4ff8-94d2-85c8ccd95fac" x="447" y="0" width="108" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{barang_keluar_total_keluar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6dde1412-b59a-472b-971c-61e9f6367b5e" x="0" y="0" width="447" height="24"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Segoe UI"/>
+				</textElement>
+				<text><![CDATA[Total Keluar   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b906427c-8d85-4d73-8b9e-278f4f2b3ba3" x="409" y="72" width="146" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Founder King Frozen Indonesia]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="9eb2e789-ad20-4745-bc15-ee84bc997989" x="394" y="52" width="161" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Bekasi, " + new java.text.SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b906427c-8d85-4d73-8b9e-278f4f2b3ba3" x="420" y="142" width="119" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Muhammad Rizqi Ariadi]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
